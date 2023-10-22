@@ -4,8 +4,7 @@ import { MDB_CONNECTION } from '../constants';
 import { DbConnection } from './db.connection';
 
 @Module({
-    providers: [DbConnection],
-    exports: [DbConnection]
+  providers: [DbConnection],
+  exports: [DbConnection],
 })
-
 export class DbModule {}
