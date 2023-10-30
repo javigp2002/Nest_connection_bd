@@ -1,5 +1,5 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { DbConnection } from './db/db.connection';
+import { Injectable } from "@nestjs/common";
+import { DbConnection } from "./db/db.connection";
 
 @Injectable()
 export class AppService {
@@ -12,9 +12,8 @@ export class AppService {
     let conn;
     try {
       conn = await this.dbConnection.createConnection();
-      const rows = await conn.query('SELECT * FROM users');
       // console.log(rows);
-      return rows;
+      return await conn.query('SELECT * FROM users');
     } catch (err) {
       throw err;
     } finally {
